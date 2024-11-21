@@ -1,0 +1,384 @@
+const { createTransport } = require("nodemailer");
+
+const users = [
+  {
+    fullName: "ahmad",
+    coustmerPoints: 2000,
+    date: "10/10/2010",
+    email: "abodfatairy@gmail.com",
+  },
+  {
+    fullName: "omar",
+    coustmerPoints: 30,
+    date: "10/10/2030",
+    email: "abod.fatairy1999@gmail.com",
+  },
+  {
+    fullName: "ahmad fatairy",
+    coustmerPoints: 30000,
+    date: "10/12/2024",
+    email: "ahmadfatayri@outlook.com",
+  },
+];
+
+const sendingEmails = ({ fullName, coustmerPoints, date, email }) => {
+  const trans = createTransport({
+    host: "smtp-relay.sendinblue.com",
+    port: 587,
+    // auth: {
+    //   // login email from brevo
+    //   user: "",
+    //   // API key from brevo
+    //   pass: "",
+    // },
+  });
+
+  const messageData = {
+    from: "abodfatairy@gmail.com",
+    to: email,
+    subject: "Magic Link for Login",
+    text: "Here is your magic link to login: [Link] sssssss",
+    html: `  <body>
+     <center
+      style="
+        width: 100%;
+        table-layout: fixed;
+        padding-bottom: 60px;
+        font-family: Helvetica;
+      "
+    >
+      <table
+        style="
+          background-color: #ffffff;
+          margin: 0 auto;
+          width: 100%;
+          max-width: 400px;
+          border-spacing: 0;
+          font-family: sans-serif;
+          color: #ffffff;
+        "
+      >
+        <tr>
+          <td>
+            <table width="100%; border-spacing: 0"">
+              <tr>
+                <td>
+                  <table style="margin: 0 auto; text-align: center">
+                    <tr>
+                      <td>
+                        <img
+                          src="https://d3k81ch9hvuctc.cloudfront.net/company/WneD3K/images/0116fe58-6559-4487-844c-7ce83a8dd3d5.png"
+                          width="70"
+                          alt=""
+                        />
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            <table style="margin: 0 auto; border-spacing: 0">
+              <tr>
+                <td>
+                  <p style="color: #4e6c76; font-weight: bold; outline: none">
+                    Your Points Will Expire Soon!
+                  </p>
+                </td>
+              </tr>
+            </table>
+            <table style="margin: 0 auto; padding: 2; border-spacing: 0">
+              <tr>
+                <td style="padding: 0 20px">
+                  <p style="color: #4e6c76; line-height: 1.7; text-align: center;">
+                    Hey ${fullName}<br/>
+                    We wanted to remind you that your customer points
+                    ${coustmerPoints} points loyalty points will be expiring on
+                    ${date} 
+                    Don't miss out on the rewards you've earned!
+                    To keep your points active, consider making a purchase or
+                    redeeming them before the deadline.
+                    Thank you for being a valued member of our loyalty program!
+                  </p>
+                </td>
+              </tr>
+            </table>
+            <table  style="margin: 0 auto; padding: 2; border-spacing: 0">
+              <tr>
+                <td style="padding: 0 20px">
+                  <button
+                    style="
+                      background-color: #4e6c76;
+                      color: white;
+                      outline: none;
+                      border: none;
+                      border-radius: 2px;
+                      padding: 8px 6px;
+                      margin: 10px 0;
+                    "
+                  >
+                     <a href="https://livgood.com/" style="text-decoration: none; color: white;">
+                    shop now
+                  </a>
+                  </button>
+                </td>
+              </tr>
+            </table>
+
+          </td>
+          <tr>
+
+          <tr>
+            <td>
+              <table width="100%; border-spacing: 0">
+                <tr>
+                  <td
+                    class="3"
+                    style="
+                      text-align:center;
+                      font-size: 0;
+        
+                    "
+                  >
+                    <table
+                      class="col"
+                      style="
+                        width: 30%;
+                        max-width: 200px;
+                        vertical-align: top;
+                        text-align: center;
+                        display: inline-block;
+                         border-spacing: 0;
+                      
+                      "
+                    >
+                      <tr>
+                        <td
+                          class="pad"
+                          style="padding: 15px"
+                        >
+                          <table
+                            class="cont"
+                            style="font-size: 15px; line-height: 15px; margin-left: 0;"
+                          >
+                            <tr>
+                              <td>
+                                <img
+                                  src="https://d3k81ch9hvuctc.cloudfront.net/company/WneD3K/images/0bb88d2e-ec50-488f-85d9-e9155a86e8e6.png"
+                                  width="70"
+                                  alt=""
+                                  style="max-width: 70px"
+                                />
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="color: #171a1b">
+                                <p style="margin: 0; font-size: 10px">
+                                  Catering to all
+                                </p>
+                                <p style="margin: 0; font-size: 10px">
+                                  Lifestyles
+                                </p>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                    <table
+                      class="col "
+                      style="
+                        width: 30%;
+                        max-width: 200px;
+                        vertical-align: top;
+                        text-align: center;
+                        display: inline-block;
+                         border-spacing: 0;
+                         margin-right: 10px;
+                      
+                      "
+                    >
+                      <tr >
+                        <td
+                          class="pad"
+                          style="padding: 20px; "
+                          
+                        >
+                          <table
+                            class="cont"
+                            style="font-size: 15px; line-height: 15px; margin: 0;"
+                          >
+                            <tr>
+                              <td>
+                                <img
+                                  src="https://d3k81ch9hvuctc.cloudfront.net/company/Pb3wug/images/62e213cc-153b-47a1-a7dc-7f1b5d2200ce.png"
+                                  width="80"
+                                  alt=""
+                                  style="max-width: 102px;"
+                                />
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="color: #171a1b">
+                                <p style="margin-top: 13px; font-size: 10px ">
+                                  Delivery all across Lebanon
+                                </p>
+                               
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                    <table
+                      class="col"
+                      style="
+                        width: 30%;
+                        max-width: 200px;
+                        vertical-align: top;
+                        text-align: center;
+                        display: inline-block;
+        
+                        margin-left: 25px;
+                      "
+                    >
+                      <tr>
+                        <td
+                          class="pad"
+                          style="padding: 15px 2px"
+                        >
+                          <table
+                            class="cont"
+                            style="font-size: 15px; line-height: 15px"
+                          >
+                            <tr>
+                              <td>
+                                <img
+                                  src="https://d3k81ch9hvuctc.cloudfront.net/company/WneD3K/images/72888f57-c891-402c-b6c8-b005c3818c8a.png"
+                                  width="50"
+                                  alt=""
+                                  style="max-width: 100px"
+                                />
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="color: #171a1b">
+                                <p style="margin: 0; font-size: 10px">
+                                  Large selection
+                                </p>
+                                <p style="margin: 0; font-size: 10px">
+                                  of products
+                                </p>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr style="background-color: #95adb1">
+            <td>
+              <table style="margin: 0 auto 10px auto; text-align: center;  border-spacing: 0;padding: 5px;">
+                <tr>
+                  <td>
+                    <p
+                      style="
+                        color: #00060a;
+                        font-size: 18px;
+                        margin: 0;
+                        margin-top: 10px;
+                      "
+                    >
+                      Join The Community!
+                    </p>
+                  </td>
+                </tr>
+              </table>
+              <table
+                style="
+                  margin: 0 auto;
+                  text-align: center;
+                  margin: 0 auto 10px auto;
+                "
+              >
+                <tr>
+                  <td>
+                    <img
+                      src="https://cdn-icons-png.flaticon.com/128/20/20837.png"
+                      alt=""
+                      width="15"
+                    />
+                    <img
+                      src="https://cdn-icons-png.flaticon.com/128/1077/1077042.png"
+                      alt=""
+                      width="15"
+                      style="margin: 0 10px"
+                    />
+                    <img
+                      src="https://cdn-icons-png.flaticon.com/128/3046/3046127.png"
+                      alt=""
+                      width="15"
+                    />
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr style="padding: 10px 0">
+            <td style="background-color: #95adb1">
+              <p style=" width: 75%; height: 0.08px; background-color: #000; margin: 0 auto;"></p>
+            </td>
+          </tr>
+          <tr style="background-color: #95adb1; ">
+            <td>
+              <table style="margin: 0 auto; text-align: center;padding: 5px;">
+                <tr>
+                  <td>
+                    <p
+                      style="color: #00060a; font-size: 18px; margin: 10px 0"
+                    >
+                      Contact Us!
+                    </p>
+                  </td>
+                </tr>
+              </table>
+              <table style="margin: 0 auto; text-align: center">
+                <tr>
+                  <td>
+                    <p style="margin: 0; color: #00060a">
+                      📞Phone: +9613116408
+                    </p>
+                    <p style="margin: 0; color: #00060a">
+                      ✉️Email: info@livgood.com
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </tr>
+            </td>
+      </table>
+    </center>
+</body>`,
+  };
+  trans.sendMail(messageData, (err, info) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("Success  " + info.response);
+    }
+  });
+};
+
+users.map((user) =>
+  sendingEmails({
+    fullName: user.fullName,
+    date: user.date,
+    coustmerPoints: user.coustmerPoints,
+    email: user.email,
+  })
+);
